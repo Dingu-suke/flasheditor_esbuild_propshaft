@@ -1,0 +1,2 @@
+module HelloConsoleHelper
+end
