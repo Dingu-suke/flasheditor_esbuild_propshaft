@@ -9,7 +9,6 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 # gem "sprockets-rails"
 gem "propshaft", "~> 0.8.0"
 
-
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -30,6 +29,8 @@ gem "cssbundling-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
+gem "tailwindcss"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
