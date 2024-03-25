@@ -1,4 +1,4 @@
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log("Hello ESbuild");
-  document.body.insertAdjacentHTML('beforeend', '<p>Hello ESbuild</p>');
+  document.body.insertAdjacentHTML('beforeend', '<p>HELLO esbuild</p>');
 });
