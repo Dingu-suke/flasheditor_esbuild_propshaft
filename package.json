@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "esbuild app/javascript/application.js --bundle --outdir=app/assets/builds --watch",
-    "build:prod": "esbuild app/javascript/application.js --bundle --outdir=app/assets/builds --minify"
+    "build:prod": "esbuild app/javascript/application.js --bundle --outdir=app/assets/builds --minify",
+    "build:css": "tailwindcss -o ./app/assets/builds/application.css"
   }
 }
