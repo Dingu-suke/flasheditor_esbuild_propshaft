@@ -5,7 +5,7 @@
 
 # これは propsahft のカスタム設定ファイル
 
-Rails.application.configure do
-  config.propshaft.javascript_pipeline = :esbuild
-  config.propshaft.webpack.exclude << 'app/javascript/**/*.js'
-end
+# Rails.application.configure do
+#   config.propshaft.javascript_pipeline = :esbuild
+#   config.propshaft.webpack.exclude << 'app/javascript/**/*.js'
+# end
