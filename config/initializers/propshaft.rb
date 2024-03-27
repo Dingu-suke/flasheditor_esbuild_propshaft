@@ -11,10 +11,10 @@
 # end
 
 Rails.application.config.assets.build_with = {
-  Propshaft::Esbuild => { inputs:  [
-                            Rails.root.join('app/javascript/**/*.js')
+  Propshaft::Esbuild => { inputs: [
+                            Rails.root.join('app/javascript/**/*.js'),
                             Rails.root.join('app/javascript/*.js')
-                            ],
+                          ],
                           options: {} },
   Propshaft::Tailwindcss => { inputs: Rails.root.join('app/assets/stylesheets'),
                           options: {}, }
