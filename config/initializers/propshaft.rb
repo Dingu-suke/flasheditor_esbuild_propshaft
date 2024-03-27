@@ -10,13 +10,13 @@
 #   config.propshaft.webpack.exclude << 'app/javascript/**/*.js'
 # end
 
-Rails.application.config.assets.build_with = {
-  Propshaft::Esbuild => { inputs: [
-                            Rails.root.join('app/javascript/**/*.js'),
-                            Rails.root.join('app/javascript/*.js')
-                          ],
-                          options: {} },
-  Propshaft::Tailwindcss => { inputs: Rails.root.join('app/assets/stylesheets'),
-                          options: {}, }
-}
+# Rails.application.config.assets.build_with = {
+#   Propshaft::Esbuild => { inputs: [
+#                             Rails.root.join('app/javascript/**/*.js'),
+#                             Rails.root.join('app/javascript/*.js')
+#                           ],
+#                           options: {} },
+#   Propshaft::Tailwindcss => { inputs: Rails.root.join('app/assets/stylesheets'),
+#                           options: {}, }
+# }
 # あとで調べる ちゃんとやる
