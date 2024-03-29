@@ -11,6 +11,9 @@ services:
     volumes:
       - .:/app
       - bundle_data:/app/vendor/bundle
+    environment:
+      - NODE_ENV=development
+      - CSS_ENV=development
     ports:
       - "3000:3000"
     depends_on:
