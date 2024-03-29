@@ -1,4 +1,40 @@
 
-<div class="bg-green-100">
-  <h1>HelloConsole#index</h1>
-  <p>Find me in app/views/hello_console/index.html.erb</p>
+<div class="bg-blue-100 h-9" >
+  <div class="">
+    <h1>HelloConsole#index</h1>
+    <div className="text-sm breadcrumbs">
+      <p>Find me in app/views/hello_console/index.html.erb</p>
+    </div>
+  </div>
+
+  <div>
+    <!-- このdivの背景色は青になります -->
+    青
+  </div>
+
+  <div class="bg-red-200">
+    <!-- このdivの背景色は赤になります -->
+    red
+  </div>
+
+  <div class="bg-green-500">
+    <!-- このdivの背景色は緑になります -->
+    おぱぱぱ
+  </div>
+  <button class="btn btn-primary">Button</button>
+
+<!-- Open the modal using ID.showModal() method -->
+  <button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+  <dialog id="my_modal_1" class="modal">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Hello!</h3>
+      <p class="py-4">Press ESC key or click the button below to close</p>
+      <div class="modal-action">
+        <form method="dialog">
+          <!-- if there is a button in form, it will close the modal -->
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+</div>
