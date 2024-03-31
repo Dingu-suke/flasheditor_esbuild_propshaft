@@ -1,7 +1,14 @@
 <header class="navbar bg-base-10 bg-blue-100">
-  <a class="btn btn-ghost text-l">ログイン</a>
-  <a class="btn btn-ghost text-l">ログアウト</a>
-  <a class="btn btn-ghost text-l">的な</a>
+  <% if user_signed_in? %>
+    <%= link_to "ログアウト", destroy_user_session_path, class:"btn btn-ghost", data: { turbo_method: :delete } %>
+    <a class="btn btn-ghost text-l">的な</a>
+    <p>#ログイン中</p>
+  <% else %>  
+    <%= link_to "ログイン", new_user_session_path, class:"btn btn-ghost text-l"%>
+    <%= link_to "新規登録", new_user_registration_path, class:"btn btn-ghost text-l"%>
+    <%= link_to "トップ", root_path, class:"btn btn-ghost text-l"%>
+    <a class="btn btn-ghost text-l">的な</a>
+  <% end %>
 </header>
 <% 
 =begin
