@@ -16,7 +16,7 @@
     "build:css-dev": "tailwindcss -o ./app/assets/builds/application.css --watch",
     "build:css-prod": "tailwindcss -o ./app/assets/builds/application.css --minify",
 
-    "build:css": "if [ \"$CSS_ENV\" = \"production\" ]; then yarn run build:css-prod; else yarn run build:css-dev; fi",
-    "build": "if [ \"$NODE_ENV\" = \"production\" ]; then yarn run build:prod; else yarn run build:dev; fi && yarn run build:css"
+    "build": "if [ \"$NODE_ENV\" = \"production\" ]; then yarn run build:prod; else yarn run build:dev; fi && yarn run build:css",
+    "build:css": "if [ \"$CSS_ENV\" = \"production\" ]; then yarn run build:css-prod; else yarn run build:css-dev; fi"
   }
 }
