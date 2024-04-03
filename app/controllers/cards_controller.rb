@@ -1,12 +1,12 @@
-class DraftsController < ApplicationController
+class CardsController < ApplicationController
   before_action :authenticate_user!
   
   def new
-    @draft = Draft.new()
+    @card = Card.new()
   end
 
   def index
-    @drafts = Draft.includes(:user)
+    @drafts = Card.includes(:user)
     # pborads = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
@@ -17,8 +17,8 @@ class DraftsController < ApplicationController
   end
 
   def create
-    @draft = current_user.drafts.build(drafts_params)
-    if @draft.save
+    @card = current_user.drafts.build(drafts_params)
+    if @card.save
       redirect_to drafts_path, success: "保存成功"
     else
       flash.now[:danger] = "保存失敗"
@@ -34,7 +34,7 @@ class DraftsController < ApplicationController
 
   private
   def drafts_params
-    params.require(:draft).permit(:title, :body)
+    params.require(:card).permit(:title, :body)
   end
 
 end

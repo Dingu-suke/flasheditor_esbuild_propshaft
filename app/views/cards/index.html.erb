@@ -1,10 +1,10 @@
 <h2>下書き一覧</h2>
 <% if @drafts.present? %>
-  <% @drafts.each do |draft| %>
+  <% @drafts.each do |card| %>
     <div class="card w-64 bg-base-100 shadow-xl">
       <div class="card-body">
-        <h2 class="card-title"><%= draft.title %></h2>
-        <p><%= draft.body %></p>
+        <h2 class="card-title"><%= card.title %></h2>
+        <p><%= card.body %></p>
         <div class="card-actions justify-end">
           <div class="form-control">
             <label class="label cursor-pointer">
