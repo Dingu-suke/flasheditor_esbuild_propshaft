@@ -1,0 +1,24 @@
+<h2>下書き一覧</h2>
+<% if @drafts.present? %>
+  <% @drafts.each do |draft| %>
+    <div class="card w-64 bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title"><%= draft.title %></h2>
+        <p><%= draft.body %></p>
+        <div class="card-actions justify-end">
+          <div class="form-control">
+            <label class="label cursor-pointer">
+              <span class="label-text"></span> 
+              <input type="checkbox" class="checkbox checkbox-primary" />
+            </label>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <br/>
+  <% end %>
+<% else %>
+  <div>下書きはありません</div>
+  </div>
+</div>
+<% end  %>
