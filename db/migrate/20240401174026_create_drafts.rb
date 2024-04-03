@@ -1,4 +1,4 @@
-class CreateDrafts < ActiveRecord::Migration[7.1]
+class CreateCards < ActiveRecord::Migration[7.1]
   def change
     create_table :drafts do |t|
       t.text :body

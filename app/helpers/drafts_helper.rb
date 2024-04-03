@@ -1,2 +1,2 @@
-module DraftsHelper
+module CardsHelper
 end

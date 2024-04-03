@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def new
-    @draft = Draft.new()
+    @card = Card.new()
   end
   
   def index
-    # @draft = Draft.new()
+    # @card = Card.new()
   end
   
   def create
