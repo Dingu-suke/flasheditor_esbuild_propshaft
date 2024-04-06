@@ -5,6 +5,6 @@ class CreateDeckTags < ActiveRecord::Migration[7.1]
       t.references :tag, null: false, foreign_key: true
       t.timestamps 
     end
-    add_index :deck_tags [:deck_id, :card_id], unique: true
+    add_index :deck_tags, [:deck_id, :tag_id], unique: true
   end
 end
