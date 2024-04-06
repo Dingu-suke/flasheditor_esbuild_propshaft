@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tags
+  resources :decks
   resources :cards
   devise_for :users
   root 'top#index'
