@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  <% if current_page?(decks_path) %>
+  <% elsif current_page?() %>
+  <div>
+    <ul class="menu menu-horizontal bg-blue-100 rounded-box mt-6 flex">
+      <li><%= link_to "下書き一覧", cards_path, class:"btn btn-ghost small" %></li>
+      <li><%= link_to "下書き作成", new_card_path, class:"btn btn-ghost text-sx"%></li>
+      <li><%= link_to "自分用", decks_path, class:"btn btn-ghost text-sx"%></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, class:"btn btn-ghost text-sx", data: { turbo_method: :delete } %></li>
+      <a class="btn btn-ghost text-l">的な</a>
+      <p>menu_bar</p>
+    </ul>
+  </div>
+  <% end %>
+<% end %>
