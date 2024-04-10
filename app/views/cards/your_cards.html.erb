@@ -1,0 +1,21 @@
+<% if @your_cards.present?%>
+  <% @your_cards.each do |card| %>
+    <div class="card w-64 bg-base-100 shadow-xl">
+      <div class="card-body">
+        <h2 class="card-title"><%= card.title %></h2>
+        <p><%= card.body %></p>
+        <div class="card-actions justify-end">
+          <div class="form-control">
+            <label class="label cursor-pointer">
+              <span class="label-text"></span> 
+              <input type="checkbox" class="checkbox checkbox-primary" />
+            </label>
+          </div>
+        </div>
+      </div>
+    </div> 
+    <br/>
+  <% end %>
+<% else %>
+  <h2>カードはまだありません</h2>
+<% end %>

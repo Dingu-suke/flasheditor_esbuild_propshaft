@@ -17,9 +17,9 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = current_user.drafts.build(drafts_params)
+    @card = current_user.cards.build(cards_params)
     if @card.save
-      redirect_to drafts_path, success: "保存成功"
+      redirect_to cards_path, success: "保存成功"
     else
       flash.now[:danger] = "保存失敗"
       render :new, status: :unprocessable_entity
@@ -32,8 +32,12 @@ class CardsController < ApplicationController
   def destroy
   end
 
+  def your_cards 
+    @your_cards = Card.where(user_id: current_user.id).includes(:user).order("created_at DESC")
+  end
+
   private
-  def drafts_params
+  def cards_params
     params.require(:card).permit(:title, :body)
   end
 
