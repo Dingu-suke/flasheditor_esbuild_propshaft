@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @deck %>
+
+<%= link_to "編集", edit_deck_path(@deck), class:"btn btn-accent" %> | 
+<%= link_to "デッキを削除する", destroy_your_deck_path(@deck), class:"btn btn-secondary ", data: { turbo_method: :delete } %>
+<br/>
+<br/>
+<br/>
+<br/>
+<div>
+
+</div>
+<div >
+  <div class=>
+    <% if @deck.cards.any? %>
+      <% @deck.cards.each_with_index do |card, index| %>
+        <div class="card w-64 bg-base-100 shadow-xl">
+        <div class="card-body">
+          <div class="flex justify-between item-center">
+            <h2 class="card-title"><%= card.title %></h2>
+            <div class="card-actions justify-end">
+              <div class="form-control">
+                <label class="label cursor-pointer">
+                  <span class="label-text"></span>
+                  <div class="flex justify-center">
+                    <input type="checkbox" class="checkbox checkbox-primary" />
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>  
+        </div>
+      </div>
+        <br/>
+      <% end %>
+    <% else %>
+      <p>ありません</p>
+    <% end %>
+  </div>
+  <div>
+
+
+  </div>
+  <br/>
+</div>

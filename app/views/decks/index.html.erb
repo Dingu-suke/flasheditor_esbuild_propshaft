@@ -1,14 +1,4 @@
-<p style="color: green"><%= notice %></p>
-
+<%=%>
 <h1>Decks</h1>
 
-<div id="decks">
-  <% @decks.each do |deck| %>
-    <%= render deck %>
-    <p>
-      <%= link_to "Show this deck", deck %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New deck", new_deck_path %>
+<%= render 'decks_index', decks: @all_decks %>
