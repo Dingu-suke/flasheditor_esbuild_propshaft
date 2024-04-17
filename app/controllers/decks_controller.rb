@@ -69,6 +69,7 @@ class DecksController < ApplicationController
   def destroy_your_deck
     @deck = Deck.find(params[:id])
     @deck.deck_cards.destroy_all
+    @deck.deck_tags.destroy_all
     @deck.destroy!
     redirect_to your_decks_path, success: "デッキを削除しました", status: :see_other
   end
