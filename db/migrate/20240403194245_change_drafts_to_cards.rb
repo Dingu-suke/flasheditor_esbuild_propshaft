@@ -1,4 +1,4 @@
-class ChangeCardsToDrafts < ActiveRecord::Migration[7.1]
+class ChangeDraftsToCards < ActiveRecord::Migration[7.1]
   def change
     rename_table :drafts, :cards
   end
