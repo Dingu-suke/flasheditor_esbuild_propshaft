@@ -46,19 +46,19 @@
                     <div class="collapse-content overflow-x-auto">
                       <%= markdown_to_html(card.answer) %>
                     </div>
+                    <% if card.remarks.present? %>
+                      <p>備考</p>
+                      <%= card.remarks %>
+                    <% end %>
                   </div>
                 <% else %>
                   <h2>解答がありません</h2>
                 <% end %>
               </div>
             </div>
-            <div class="w-1/2 flex">
-                <div id="editor<%= index %>" style="height: 170px"></div>
+            <div class="">
+                <div id="editor<%= index %>" style="height: 240px"></div>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.0/ace.js"></script>
-                <% if card.remarks.present? %>
-                  <%= card.remarks %>
-                <% end %>
-            </div>
                 <script>
                   var editor = ace.edit("editor<%= index %>");
                   editor.setTheme("ace/theme/monokai");
@@ -67,6 +67,7 @@
                   editor.getSession().setUseWrapMode(true);
                   editor.getSession().setTabSize(2);
                 </script>
+            </div>
             <br/>
             <br/>
             <br/>
