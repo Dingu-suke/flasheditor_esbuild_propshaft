@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'deck_cards/:id' => 'decks#deck_cards', as: 'deck_cards'
   
   delete 'destroy_your_deck/:id' => 'decks#destroy_your_deck', as:'destroy_your_deck'
+  delete 'destroy_your_card/:id' => 'cards#destroy_your_card', as:'destroy_your_card'
   
   # Defines the root path route ("/")
   # root "posts#index"

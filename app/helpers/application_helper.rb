@@ -1,23 +1,30 @@
 module ApplicationHelper
-  def render_cards_helper(cards)
-    return 'カードはまだありません' if cards.blank?
+  class CustomMarkdownRenderer < Redcarpet::Render::HTML
+    def block_code(code, language)
+      language = language.blank? ? :plaintext : language.split(':').first
+      highlighted_code = CodeRay.scan(code, language).div
 
-    cards.inject(''.html_safe) do |output, card|
-      output + content_tag(:div, class: "card w-64 bg-base-100 shadow-xl") do
-        content_tag(:div, class: "card-body") do
-          concat(content_tag(:h2, card.title, class: "card-title"))
-          concat(content_tag(:p, card.body))
-          concat(content_tag(:div, class: "card-actions justify-end") do
-            content_tag(:div, class: "form-control") do
-              label_tag('', class: 'label cursor-pointer') do
-                concat(content_tag(:span, '', class: 'label-text'))
-                concat(check_box_tag('', '', false, class: 'checkbox checkbox-primary'))
-              end
-            end
-          end)
-        end
-      end + tag.br
+      # daisyUI の mockup-code コンポーネント形式でラップ
+      formatted_code = highlighted_code.lines.each_with_index.map do |line, index|
+        # "<pre data-prefix=\"#{index + 1}\"><code>#{line.chomp}</code></pre>"
+        "<pre><code>#{line.chomp}</code></pre>"
+      end.join
+
+      "<div class=\"mockup-code bg-base-200 text-base-content\">#{formatted_code}</div>"
     end
   end
 
+  def markdown_to_html(text)
+    renderer = CustomMarkdownRenderer.new(with_toc_data: true)
+    extensions = {
+      autolink: true,
+      no_intra_emphasis: true,
+      fenced_code_blocks: true,
+      space_after_headers: true,
+      strikethrough: true
+    }
+    markdown = Redcarpet::Markdown.new(renderer, extensions)
+    markdown.render(text).html_safe
+  end
 end
+

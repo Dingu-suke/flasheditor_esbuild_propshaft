@@ -6,6 +6,7 @@ class Deck < ApplicationRecord
   has_many :tags, through: :deck_tags
 
   validates :name, presence: true, length: { maximum: 255 }
+  validates :name, presence: true, length: { maximum: 255 }
 
   def at_least_threee_cards
     if cards.size < 3
