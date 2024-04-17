@@ -36,7 +36,7 @@ class DecksController < ApplicationController
   # PATCH/PUT /decks/1 or /decks/1.json
   def update
     @deck = current_user.decks.find(params[:id])
-    if @deck.update(decks_params)
+    if @deck.update(deck_params)
       redirect_to your_decks_path, success: "保存成功"
     else
       flash.now[:danger] = "保存失敗"
