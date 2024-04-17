@@ -4,7 +4,8 @@ class DecksController < ApplicationController
 
   # GET /decks or /decks.json
   def index
-    @all_decks = Deck.all
+    @q = Deck.ransack(params[:q])
+    @all_decks = @q.result(distinct: true)#.includes(:user)
     @cards = Card.all
   end
 

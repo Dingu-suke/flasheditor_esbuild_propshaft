@@ -1,8 +1,14 @@
 <% if user_signed_in? %>
   <% if current_page?(decks_path) %>
     <ul class="menu menu-horizontal bg-blue-100 rounded-box mt-6 flex">
-      <li>ここには検索窓を用意する</li>
-      <p>menu_bar</p>
+      <div>
+        <%= search_form_for @q do |f| %>
+          <div class="flex">
+            <%= f.search_field :name_cont, class: 'form-control', placeholder: 'デッキ名' %>
+            <%= f.submit '検索', class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>      
     </ul>
   <% elsif current_page?() %>
   <div>
@@ -20,4 +26,15 @@
     </ul>
   </div>
   <% end %>
+<% elsif current_page?(decks_path)  %>
+  <ul class="menu menu-horizontal bg-blue-100 rounded-box mt-6 flex">
+    <div>
+      <%= search_form_for @q do |f| %>
+        <div class="flex">
+          <%= f.search_field :name_cont, class: 'form-control', placeholder: 'デッキ名' %>
+          <%= f.submit '検索', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>      
+  </ul>
 <% end %>
