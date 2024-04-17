@@ -7,7 +7,6 @@ class Card < ApplicationRecord
 
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, presence: true, length: { maximum: 65_535 }
-  validates :remarks, presence: true, length: { maximum: 65_535 }
   
   def set_default_remarks
     self.remarks = 'なし' if body.blank?
