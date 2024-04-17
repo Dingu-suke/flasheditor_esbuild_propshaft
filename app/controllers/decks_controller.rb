@@ -20,6 +20,8 @@ class DecksController < ApplicationController
 
   # GET /decks/1/edit
   def edit
+    @deck = current_user.decks.find(params[:id])
+    @deck.tag_names = @deck.tags.map(&:name).join(',')
   end
 
   # POST /decks or /decks.json
@@ -78,6 +80,6 @@ class DecksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def deck_params
-      params.require(:deck).permit(:name, card_ids:[])
+      params.require(:deck).permit(:name, :tag_names, card_ids:[])
     end
 end
