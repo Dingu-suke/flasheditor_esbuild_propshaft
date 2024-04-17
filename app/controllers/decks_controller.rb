@@ -28,25 +28,19 @@ class DecksController < ApplicationController
 
     respond_to do |format|
       if @deck.save
-        format.html { redirect_to deck_url(@deck), notice: "Deck was successfully created." }
-        format.json { render :show, status: :created, location: @deck }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @deck.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # PATCH/PUT /decks/1 or /decks/1.json
   def update
-    respond_to do |format|
-      if @deck.update(deck_params)
-        format.html { redirect_to deck_url(@deck), notice: "Deck was successfully updated." }
-        format.json { render :show, status: :ok, location: @deck }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @deck.errors, status: :unprocessable_entity }
-      end
+    @deck = current_user.decks.find(params[:id])
+    if @deck.update(decks_params)
+      redirect_to your_decks_path, success: "保存成功"
+    else
+      flash.now[:danger] = "保存失敗"
+      render :edit
     end
   end
 
