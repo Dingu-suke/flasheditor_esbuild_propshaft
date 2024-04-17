@@ -71,42 +71,61 @@ RUNTEQ生、及びその他プログラミング学習者
 
 ### ER図
 
-![image](https://github.com/Dingu-suke/portfolio/assets/139987339/dd20e849-031a-411c-82a8-7bab4036bdfc)
-
-
+<img width="830" alt="image" src="https://github.com/Dingu-suke/flasheditor_esbuild_propshaft/assets/139987339/082cd993-63e9-4e26-b9ce-825a20ede12e">
 
 - users ユーザー
-    - name ユーザー名
-    - プロフィール
     - email メールアドレス
-    - Crypted_password パスワード（sorcery使用予定）
-- drafts 下書き
-    - 本文
-    - user_id 外部キー
-- likes 中間テーブル
-    - user_id
-    - post_id
-- psots 投稿
-    - title タイトル
-    - body 本文
-- folders フォルダ
-    - title タイトル
-    - tag_id 外部キー
-    - user_id 外部キー
-    - post_id 外部キー
-    - card_id 外部キー
+    - encrypted_password 暗号化されたパスワード（devise使用）
+    - reset_password_token パスワードリセットトークン
+    - reset_password_sent_at パスワードリセット送信時刻
+    - remember_created_at 記憶トークン作成時刻
+    - created_at 作成日時
+    - updated_at 更新日時
+    - name 名前
+
 - cards カード
-    - folder_id 外部キー
     - body 本文
-- tagfolders 中間テーブル
-    - tag_id
-    - folder_id
+    - created_at 作成日時
+    - updated_at 更新日時
+    - title タイトル
+    - user_id ユーザーID（外部キー）
+    - remarks 備考
+    - answer 回答
+    - user_id インデックス
+
+- deck_cards デッキカード
+    - deck_id デッキID（外部キー）
+    - card_id カードID（外部キー）
+    - created_at 作成日時
+    - updated_at 更新日時
+    - card_id インデックス
+    - deck_id, card_id インデックス（一意）
+
+- deck_tags デッキタグ
+    - deck_id デッキID（外部キー）
+    - tag_id タグID（外部キー）
+    - created_at 作成日時
+    - updated_at 更新日時
+    - deck_id, tag_id インデックス（一意）
+
+- decks デッキ
+    - user_id ユーザーID（外部キー）
+    - created_at 作成日時
+    - updated_at 更新日時
+    - name 名前
+    - user_id インデックス
+
 - tags タグ
-    - folder_id 外部キー
-    - post_id 外部キー
-- tagposts 中間テーブル
-    - tag_id
-    - post_id
+    - name 名前
+    - created_at 作成日時
+    - updated_at 更新日時
+
+##### 外部キー制約
+- cards テーブルは users テーブルに依存
+- deck_cards テーブルは cards テーブルと decks テーブルに依存
+- deck_tags テーブルは decks テーブルと tags テーブルに依存
+- decks テーブルは users テーブルに依存
+
 
 ### 画面遷移図
 
