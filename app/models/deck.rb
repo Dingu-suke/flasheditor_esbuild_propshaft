@@ -7,10 +7,13 @@ class Deck < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 255 }
   validates :name, presence: true, length: { maximum: 255 }
+  validate :at_least_a_cards
 
   attr_accessor :tag_names
 
   before_save :assign_tags # コールバック
+  
+  private
 
   def assign_tags
     if tag_names 
@@ -26,8 +29,8 @@ class Deck < ApplicationRecord
     end
   end
 
-  def at_least_threee_cards
-    if cards.size < 3
+  def at_least_a_cards
+    if cards.size < 1
       errors.add(:cards, 'は最低1枚選択してください')
     end
   end

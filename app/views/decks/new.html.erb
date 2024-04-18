@@ -8,9 +8,13 @@
     <%= f.text_field :name, class: "form-control" %>
   </div>
   <br/>
-  <p>[カードを選択したください]</p>
-  <%= f.collection_check_boxes :card_ids, current_user.cards, :id, :title do |b| %>
-  <%= b.label { b.check_box + b.text } %>
+  <p>[既存のカードを選択]</p>
+  <% if current_user.cards.present? %>
+    <%= f.collection_check_boxes :card_ids, current_user.cards, :id, :title do |b| %>
+      <%= b.label { b.check_box + b.text } %>
+    <% end %>
+  <% else %>
+    <p>まだカードがありません。カードを作成してください。</p>
   <% end %>
   <br/>
   <br/>
