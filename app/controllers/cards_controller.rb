@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_card
+  before_action :set_card, only: [:show, :edit, :update, :destroy]
   def new
     @card = Card.new()
     @card.body = "```ruby\n#ここにコメントアウトで問題文を書く\n#ここにコードを書く\n```"
