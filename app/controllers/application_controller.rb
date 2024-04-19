@@ -6,4 +6,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_card
+    @card = Card.find(params[:id])
+  end
 end
