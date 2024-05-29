@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   resources :tags
   resources :decks, except: %i[show]
   resources :cards
+
+  # あとで削除
+  get "card/new_compare" => "cards#new_compare"
   
   devise_for :users
   devise_scope :user do
