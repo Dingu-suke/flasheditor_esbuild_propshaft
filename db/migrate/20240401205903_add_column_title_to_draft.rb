@@ -1,4 +1,4 @@
-class AddColumnTitileToCard < ActiveRecord::Migration[7.1]
+class AddColumnTitleToDraft < ActiveRecord::Migration[7.1]
   def change
     add_column :drafts, :title, :string
   end
